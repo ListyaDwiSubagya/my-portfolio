@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* * {
+  font-family: Outfit;
+} */
+
+@theme {
+
+  /* dark mode */
+  
+  /* Colors */
+  --color-lightHover: #fcf4ff;
+  --color-darkHover: #2a004a;
+  --color-darkTheme: #11001f;
+
+
+  /* box shadow */
+  --shadow-black: 4px 4px 0 #000;
+  --shadow-white: 4px 4px 0 #fff;
+
+  /* Font families (ambil dari next/font variable) */
+  --font-family-outfit: var(--font-outfit), sans-serif;
+  --font-family-ovo: var(--font-ovo), serif;
+
+  --grid-cols-custom-13: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@variant dark (&:where(.dark, .dark *));
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+@layer utilities {
+  .font-outfit {
+    font-family: var(--font-outfit), sans-serif;
+  }
+
+  .font-ovo {
+    font-family: var(--font-ovo), serif;
+  }
+
+  .shadow-black {
+    box-shadow: var(--shadow-black);
+  }
+
+  .shadow-white {
+    box-shadow: var(--shadow-white);
+  }
+
+  .grid-cols-auto {
+    grid-template-columns: var(--grid-cols-custom-13);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
