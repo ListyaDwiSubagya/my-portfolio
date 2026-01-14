@@ -10,7 +10,16 @@ import Work from "./components/Work";
 
 export default function Home() {
 
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && 
+    window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      setIsDarkMode(true)
+    } else {
+      setIsDarkMode(false)
+    }
+  },[])
 
   useEffect(() => {
     if (isDarkMode) {
@@ -24,13 +33,13 @@ export default function Home() {
 
   return (
     <>
-      <Navbar/>
-      <Header/>
-      <About/>
-      <Services/>
-      <Work/>
-      <Contact/>
-      <Footer/>
+      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+      <About isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+      <Services isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+      <Work isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+      <Contact isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+      <Footer isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
     </>
   );
 }

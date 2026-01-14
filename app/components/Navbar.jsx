@@ -2,7 +2,8 @@ import { assets } from '@/assets/assets'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 
-const Navbar = () => {
+const Navbar = ({isDarkMode, setIsDarkMode}) => {
+    
     const [isScroll, setIsScroll] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const sideMenuRef = useRef();
@@ -64,7 +65,8 @@ const Navbar = () => {
     return (
         <>
             {/* Background Image */}
-            <div className='fixed top-0 right-0 w-11/12 -z-10 -translate-y-[80%] pointer-events-none'>
+            <div className='fixed top-0 right-0 w-11/12 -z-10 -translate-y-[80%] pointer-events-none 
+            dark:hidden'>
                 <Image 
                     alt='Header background' 
                     src={assets.header_bg_color} 
@@ -78,12 +80,12 @@ const Navbar = () => {
             {/* Main Navbar */}
             <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex 
             items-center justify-between z-50 transition-all duration-300
-            ${isScroll ? "bg-white/50 backdrop-blur-md shadow-sm" : "bg-transparent"}`}>
+            ${isScroll ? "bg-white/70 backdrop-blur-md shadow-sm dark:bg-darkTheme dark:shadow-white/20" : "bg-transparent"}`}>
                 
                 {/* Logo */}
                 <a href="#top" className='flex items-center'>
                     <Image 
-                        src={assets.logo} 
+                        src={isDarkMode ? assets.logo_dark : assets.logo} 
                         className='w-28 cursor-pointer' 
                         alt='Logo'
                         width={112}
@@ -93,9 +95,15 @@ const Navbar = () => {
                 </a>
 
                 {/* Desktop Navigation */}
-                <ul className={`hidden md:flex items-center gap-6 lg:gap-8
-                rounded-full px-12 py-3 transition-all duration-300
-                ${isScroll ? "bg-white/70 backdrop-blur-sm shadow-sm" : "bg-white/50 backdrop-blur-sm shadow-sm"}`}>
+                <ul
+                    className={`hidden md:flex items-center gap-6 lg:gap-8
+                    rounded-full px-12 py-3 transition-all duration-300 backdrop-blur-sm shadow-sm
+
+                    ${isScroll 
+                        ? "border-none dark:border-none" 
+                        : "border border-gray-300 dark:border-white/50 dark:bg-transparent"}
+                    `}
+                    >
                     <li><a className='font-ovo hover:text-darkTheme transition-colors' href="#top">Home</a></li>
                     <li><a className='font-ovo hover:text-darkTheme transition-colors' href="#about">About me</a></li>
                     <li><a className='font-ovo hover:text-darkTheme transition-colors' href="#services">Services</a></li>
@@ -106,10 +114,10 @@ const Navbar = () => {
                 {/* Right Section */}
                 <div className='flex items-center gap-4'>
                     {/* Dark Mode Toggle */}
-                    <button className='p-2 cursor-pointer rounded-full transition-colors'>
+                    <button onClick={() => setIsDarkMode(prev => !prev)} className='p-2 cursor-pointer '>
                         <Image 
-                            alt='Dark mode toggle' 
-                            src={assets.moon_icon} 
+                            alt='' 
+                            src={isDarkMode ? assets.sun_icon : assets.moon_icon} 
                             className='w-6 h-6'
                             width={24}
                             height={24}
@@ -118,12 +126,11 @@ const Navbar = () => {
 
                     {/* Contact Button (Desktop) */}
                     <a className='hidden lg:flex items-center gap-3 px-10 py-2.5 border
-                    border-darkTheme rounded-full ml-4 font-ovo hover:bg-darkTheme 
-                    hover:text-white transition-colors duration-300' 
+                    border-gray-500 rounded-full ml-4 font-ovo dark:border-white/50' 
                     href="#contact">
                         Contact 
                         <Image 
-                            src={assets.arrow_icon} 
+                            src={ isDarkMode ? assets.arrow_icon_dark : assets.arrow_icon} 
                             className='w-3 h-3'
                             alt='Arrow icon'
                             width={12}
@@ -134,12 +141,13 @@ const Navbar = () => {
                     {/* Mobile Menu Button */}
                     <button 
                         onClick={openMenu}
-                        className='block md:hidden ml-3 p-2 cursor-pointer rounded-full transition-colors'
+                        className='block md:hidden ml-3 p-2 cursor-pointer rounded-full transition-colors
+                         dark:text-white'
                         aria-label="Open menu"
                     >
                         <Image 
                             alt='Menu' 
-                            src={assets.menu_black} 
+                            src={ isDarkMode ? assets.menu_white : assets.menu_black} 
                             className='w-6 h-6'
                             width={24}
                             height={24}
@@ -159,17 +167,18 @@ const Navbar = () => {
                 <ul 
                     ref={sideMenuRef}
                     className='flex md:hidden flex-col gap-6 py-24 px-8 fixed top-0 -right-64
-                    w-64 z-50 h-screen bg-lightHover shadow-2xl transition-transform duration-500 ease-in-out'
+                    w-64 z-50 h-screen bg-lightHover shadow-2xl transition-transform duration-500 ease-in-out
+                 dark:bg-darkHover dark:text-white'
                 >
                     {/* Close Button */}
                     <button 
                         onClick={closeMenu}
-                        className='absolute right-6 top-6 p-2 hover:bg-lightHover rounded-full transition-colors'
+                        className='absolute right-6 top-6 p-2 rounded-full transition-colors dark:bg-darkHover dark:text-white'
                         aria-label="Close menu"
                     >
                         <Image 
                             alt='Close' 
-                            src={assets.close_black} 
+                            src={isDarkMode? assets.close_white : assets.close_black} 
                             className='w-5 h-5'
                             width={20}
                             height={20}
@@ -178,27 +187,27 @@ const Navbar = () => {
 
                     {/* Menu Items */}
                     <li>
-                        <a className='font-ovo text-xl hover:text-darkTheme transition-colors block py-3 border-b border-gray-100' 
+                        <a className='font-ovo text-xl  transition-colors block py-3 ' 
                            onClick={closeMenu} 
                            href="#top">Home</a>
                     </li>
                     <li>
-                        <a className='font-ovo text-xl hover:text-darkTheme transition-colors block py-3 border-b border-gray-100' 
+                        <a className='font-ovo text-xl  transition-colors block py-3 ' 
                            onClick={closeMenu} 
                            href="#about">About me</a>
                     </li>
                     <li>
-                        <a className='font-ovo text-xl hover:text-darkTheme transition-colors block py-3 border-b border-gray-100' 
+                        <a className='font-ovo text-xl  transition-colors block py-3 ' 
                            onClick={closeMenu} 
                            href="#services">Services</a>
                     </li>
                     <li>
-                        <a className='font-ovo text-xl hover:text-darkTheme transition-colors block py-3 border-b border-gray-100' 
+                        <a className='font-ovo text-xl  transition-colors block py-3 ' 
                            onClick={closeMenu} 
                            href="#work">My Work</a>
                     </li>
                     <li>
-                        <a className='font-ovo text-xl hover:text-darkTheme transition-colors block py-3 border-b border-gray-100' 
+                        <a className='font-ovo text-xl  transition-colors block py-3 ' 
                            onClick={closeMenu} 
                            href="#contact">Contact Me</a>
                     </li>
