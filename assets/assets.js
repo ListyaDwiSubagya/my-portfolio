@@ -1,4 +1,4 @@
-import user_image from './user-image.png';
+// import user_image from './user-image.png';
 import code_icon from './code-icon.png';
 import code_icon_dark from './code-icon-dark.png';
 import edu_icon from './edu-icon.png';
@@ -37,7 +37,7 @@ import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
 
 export const assets = {
-    user_image,
+    // user_image,
     code_icon,
     code_icon_dark,
     edu_icon,
@@ -79,35 +79,39 @@ export const assets = {
 export const workData = [
     {
         title: 'Frontend project',
-        description: 'Web Design',
-        bgImage: '/work-1.png',
+        description: 'Car Rent',
+        bgImage: '/work-7.png',
+        link : ''
     },
     {
-        title: 'Geo based app',
-        description: 'Mobile App',
-        bgImage: '/work-2.png',
+        title: 'Frontend project',
+        description: 'Agency AI',
+        bgImage: '/work-6.jpeg',
+        link : 'https://agency-website-virid-ten.vercel.app/'
     },
     {
-        title: 'Photography site',
-        description: 'Web Design',
-        bgImage: '/work-3.png',
+        title: 'Frontend project',
+        description: 'Job Portal',
+        bgImage: '/work-1.jpeg',
+        link : 'https://app.netlify.com/projects/playful-boba-553703/overview'
     },
     {
-        title: 'UI/UX designing',
-        description: 'UI/UX Design',
-        bgImage: '/work-4.png',
+        title: 'Frontend project',
+        description: 'E-commerce',
+        bgImage: '/work-2.jpeg',
+        link : 'https://sunny-douhua-2006f6.netlify.app/'
     },
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Web design', description: 'Web development is the process of building, programming...', link: '' },
-    { icon: assets.mobile_icon, title: 'Mobile app', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
-    { icon: assets.ui_icon, title: 'UI/UX design', description: 'UI/UX design focuses on creating a seamless user experience...', link: '' },
-    { icon: assets.graphics_icon, title: 'Graphics design', description: 'Creative design solutions to enhance visual communication...', link: '' },
+    { icon: assets.web_icon, title: 'Front-end', description: 'Crafting responsive and interactive user interfaces using modern frameworks like React and Next.js to ensure a seamless web experience.', link: '' },
+    { icon: assets.ui_icon, title: 'Back-end', description: 'Building robust server-side logic, managing databases, and developing secure APIs to power high-performance web applications.', link: '' },
+    { icon: assets.mobile_icon, title: 'Fullstack', description: 'Bridging the gap between client and server, handling everything from database architecture to final UI implementation with ease.', link: '' },
+    { icon: assets.graphics_icon, title: 'UI/UX', description: 'Designing intuitive user journeys and visually appealing interfaces that prioritize accessibility and user engagement.', link: '' },
 ]
 
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript React Js, Next Js' },
+    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'HTML, CSS, JavaScript React Js, Next Js, PHP, Laravel' },
     { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'B.Tech in Computer Science' },
     { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built more than 5 projects' }
 ];
