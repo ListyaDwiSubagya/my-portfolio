@@ -6,7 +6,7 @@ const Footer = ({isDarkMode}) => {
   return (
     <div className='mt-20'>
         <div className='text-center'>
-            <Image alt='' src={isDarkMode ? assets.logo_dark : assets.logo} className='w-36 mx-auto mb-2 dark:'/>
+            <Image alt='' src={isDarkMode ? assets.logo_dark : assets.logo1} className='w-36 mx-auto mb-2 dark:'/>
             
             <div className='flex w-max items-center gap-2 mx-auto'>
                 <Image alt='' src={isDarkMode ? assets.mail_icon_dark : assets.mail_icon} className='w-6'/>
@@ -20,7 +20,7 @@ const Footer = ({isDarkMode}) => {
             <ul className='flex items-center gap-10 justify-center mt-4 sm:mt-0'>
                 <li><a target='_blank' href="https://github.com/ListyaDwiSubagya">Github</a></li>
                 <li><a target='_blank' href="https://www.linkedin.com/in/listyadwis/">LinkedIn</a></li>
-                <li><a target='_blank' href="https://github.com/ListyaDwiSubagya">Instagram</a></li>
+                <li><a target='_blank' href="https://www.instagram.com/_neption?igsh=MjcybjFiYjRnbm5j">Instagram</a></li>
             </ul>
         </div>
 

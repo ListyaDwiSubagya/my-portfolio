@@ -85,7 +85,7 @@ const Navbar = ({isDarkMode, setIsDarkMode}) => {
                 {/* Logo */}
                 <a href="#top" className='flex items-center'>
                     <Image 
-                        src={isDarkMode ? assets.logo_dark : assets.logo} 
+                        src={isDarkMode ? assets.logo_dark : assets.logo1} 
                         className='w-28 cursor-pointer' 
                         alt='Logo'
                         width={112}

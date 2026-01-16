@@ -11,11 +11,11 @@ import figma from './figma.png';
 import git from './git.png';
 import mongodb from './mongodb.png';
 import right_arrow_white from './right-arrow-white.png';
-import logo from './logo.png';
+import logo1 from './logo1.png';
 import logo_dark from './logo_dark.png';
 import mail_icon from './mail_icon.png';
 import mail_icon_dark from './mail_icon_dark.png';
-import profile_img from './profile-img.png';
+import profile_img from './profil-img.png';
 import download_icon from './download-icon.png';
 import hand_icon from './hand-icon.png';
 import header_bg_color from './header-bg-color.png';
@@ -50,7 +50,7 @@ export const assets = {
     git,
     mongodb,
     right_arrow_white,
-    logo,
+    logo1,
     logo_dark,
     mail_icon,
     mail_icon_dark,
@@ -93,7 +93,7 @@ export const workData = [
         title: 'Frontend project',
         description: 'Job Portal',
         bgImage: '/work-1.jpeg',
-        link : 'https://app.netlify.com/projects/playful-boba-553703/overview'
+        link : 'https://playful-boba-553703.netlify.app/'
     },
     {
         title: 'Frontend project',
@@ -101,6 +101,31 @@ export const workData = [
         bgImage: '/work-2.jpeg',
         link : 'https://sunny-douhua-2006f6.netlify.app/'
     },
+    {
+        title: 'Frontend project',
+        description: 'Real Estate',
+        bgImage: '/work-3.jpeg',
+        link : 'https://phenomenal-belekoy-fb4168.netlify.app/'
+    },
+    {
+        title: 'Frontend project',
+        description: 'Gemini AI',
+        bgImage: '/work-4.jpeg',
+        link : 'https://phenomenal-belekoy-fb4168.netlify.app/'
+    },
+    {
+        title: 'Frontend project',
+        description: 'Education Web',
+        bgImage: '/work-5.jpeg',
+        link : 'https://vocal-marzipan-8c90a7.netlify.app/'
+    },
+    {
+        title: 'Frontend project',
+        description: 'Movie Web',
+        bgImage: '/work-8.png',
+        link : 'https://sprightly-narwhal-e77be2.netlify.app/'
+    },
+    
 ]
 
 export const serviceData = [
